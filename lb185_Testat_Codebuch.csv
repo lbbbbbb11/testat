@@ -8,7 +8,7 @@ weight,"Transfersumme in 100.000 Euro Schritten, gerundet falls abweichend"
 season,"Transferfenster, nur erste Jahreszahl des Fensters als JJJJ verwenden"
 ,
 nodelist,
-id,Rückennumer oder Vereinsname
+id,"Rückennumer, Nationalität oder Vereinsname"
 name,Spieler oder Vereinsname
 country,Land
 type1,Spieler 
