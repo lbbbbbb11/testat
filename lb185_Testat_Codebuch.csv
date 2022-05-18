@@ -2,7 +2,7 @@ Codebuch,
 ,
 Wert,Bezeichnung
 edgelist,
-from,"Verein oder Land, woher der Spieler kommt"
+from,"Verein oder Land, woher der Spieler kommt und die Rückennummer"
 to ,ID des Spielers (Rückennummer)
 weight,"Transfersumme in 100.000 Euro Schritten, gerundet falls abweichend"
 season,"Transferfenster, nur erste Jahreszahl des Fensters als JJJJ verwenden"
