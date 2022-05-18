@@ -15,5 +15,4 @@ country,Land
 type1,Spieler 
 type2,Verein
 ,
-,
 NA,"definiert fehlende Werte, bei der Datenerhebung das Feld einfach leer lassen, R rechnet NAs (missing values) automatisch raus"
