@@ -1,0 +1,55 @@
+---
+title: "SNA Testat"
+author: "Lisa Bidlingmeyer (lb185)"
+---
+Link zu Github: https://github.com/lbbbbbb11/testat
+
+Codebuch      (Link: https://github.com/lbbbbbb11/testat/blob/main/lb185_Testat_Codebuch.csv)
+
+Wert          Bezeichnung
+
+edgelist    
+from          Verein oder Land, woher der Spieler kommt und die Rückennummer
+to            ID des Spielers (Rückennummer)
+weigh         Transfersumme in 100.000 Euro Schritten, gerundet falls abweichend
+season        Transferfenster, nur erste Jahreszahl des Fensters als JJJJ verwenden
+
+nodelist
+id            Rückennumer, Nationalität oder Vereinsname
+name          Spieler oder Vereinsname
+country       Land
+type1         Spieler
+type2         Verein
+
+NA            definiert fehlende Werte, bei der Datenerhebung das Feld einfach leer lassen, R rechnet NAs (missing values) automatisch raus
+```{r Gesamnetzwerk erstellen, echo=FALSE}
+
+library(igraph)
+
+# Einlesen der Edge- und Nodelist
+el <- read.csv("https://raw.githubusercontent.com/lbbbbbb11/testat/main/lb185_Testat_Edgelist.csv", header=T, as.is=T, sep = ",")
+
+nl <- read.csv("https://raw.githubusercontent.com/lbbbbbb11/testat/main/lb185_Testat_Nodelist.csv", header=T, as.is=T, sep = ",")
+
+# Matrix erstellen
+edgematrix <- as.matrix(el)
+
+# Zusammenführen von Edge- und Nodelist als igraph-Objekt s
+s <- graph_from_data_frame(d=edgematrix, directed=T)
+s
+
+```
+
+
+```{r Einfache Visualisierung des erstellten Objekt, fig.height=4, fig.width=6}
+
+# Netzwerk visualisieren
+plot(s,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=12,
+    edge.length=100,
+     edge.arrow.size=.5,
+     edge.color="black",
+     main ="Übersicht Transfers zum VFB")
+```
